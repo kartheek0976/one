@@ -11,7 +11,7 @@
 	<h1 style="color: red; font-size: 40px;" align="center">WE INTEGRATED NEXUS TO JENKINS</h1>
          <h1 style="color: pink; font-size: 40px;" align="center">WE INTEGRATED NEXUS TO JENKINS</h1>
          <h1 style="color: red; font-size: 40px;" align="center">WE INTEGRATED NEXUS TO JENKINS</h1>
-          <h1 style="color: light green; font-size: 40px;" align="center">srinu lover how is this please Tell me--- CI/CD</h1>
+          <h1 style="color: light green; font-size: 40px;" align="center">i am learning devops --- CI/CD</h1>
 	
 	
 	
