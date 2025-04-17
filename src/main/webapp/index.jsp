@@ -1,4 +1,7 @@
+<!DOCTYPE html>
 <html>
+  <!-- rest of your HTML content -->
+</html>
 <head>
 	
 </head>
