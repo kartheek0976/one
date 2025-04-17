@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">  <!-- 'en' for English, change as needed -->
   <!-- Rest of your HTML -->
