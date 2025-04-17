@@ -1,5 +1,8 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">  <!-- 'en' for English, change as needed -->
+  <!-- Rest of your HTML -->
+</html>
   <!-- rest of your HTML content -->
 </html>
 <head>
