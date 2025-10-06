@@ -91,6 +91,7 @@
           </div>
           <div class="card-body">
             <table class="table table-striped">
+             <caption>Employee Details - Department Wise</caption>
               <thead>
                 <tr>
                   <th>#</th>
