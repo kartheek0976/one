@@ -19,7 +19,7 @@ spec:
       - name: cont-1
         image: kartheek0976/priya:2
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -30,5 +30,5 @@ spec:
   selector:
     app: latha
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 8080
+    targetPort: 8080
