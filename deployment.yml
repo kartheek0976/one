@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: cont-1
-        image: kartheek0976/priya:1
+        image: kartheek0976/priya:2
         ports:
         - containerPort: 80
 ---
