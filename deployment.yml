@@ -4,7 +4,7 @@ metadata:
   name: mydeploy
 
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: latha
@@ -17,14 +17,24 @@ spec:
     spec:
       containers:
       - name: cont-1
-        image: kartheek0976/priya:one
+        image: kartheek0976/priya:2
         ports:
         - containerPort: 8080
+
+        volumeMounts:
+        - name: myvolume
+          mountPath: /usr/local/tomcat/webapps
+
+      volumes:
+      - name: myvolume
+        persistentVolumeClaim:
+          claimName: mypvc
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: mysvc
+
 spec:
   type: LoadBalancer
   selector:
@@ -32,3 +42,52 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mypv
+spec:
+  capacity:
+    storage: 10Gi
+
+  accessModes:
+    - ReadWriteOnce
+
+  persistentVolumeReclaimPolicy: Retain
+
+  awsElasticBlockStore:
+    volumeID: vol-04c15ecede4c878f8
+    fsType: ext4
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc
+
+spec:
+  accessModes:
+    - ReadWriteOnce
+
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: myhpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: mydeploy
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
